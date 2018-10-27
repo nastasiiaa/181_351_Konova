@@ -21,11 +21,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab3sheiker", "lab3sheiker\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab6!", "lab6\lab6.vcxproj", "{9910C5C7-B409-4772-9FBC-CAF34B84F660}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab6", "lab6!\lab6!.vcxproj", "{A897D7A4-BD0C-4483-8E19-857425E10D06}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab5_classes", "lab6!\lab6!.vcxproj", "{A897D7A4-BD0C-4483-8E19-857425E10D06}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab6_matrix", "lab6_matrix\lab6_matrix.vcxproj", "{01EB544A-7F40-4CE7-BB85-6A5353A96FA9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab7", "lab7\lab7.vcxproj", "{207563BA-3BD2-4A23-83B2-79A744B1C6E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab8", "lab8\lab8.vcxproj", "{8D61440F-718B-45A2-85F6-96691DA036A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,14 @@ Global
 		{207563BA-3BD2-4A23-83B2-79A744B1C6E9}.Release|x64.Build.0 = Release|x64
 		{207563BA-3BD2-4A23-83B2-79A744B1C6E9}.Release|x86.ActiveCfg = Release|Win32
 		{207563BA-3BD2-4A23-83B2-79A744B1C6E9}.Release|x86.Build.0 = Release|Win32
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Debug|x64.ActiveCfg = Debug|x64
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Debug|x64.Build.0 = Debug|x64
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Debug|x86.ActiveCfg = Debug|Win32
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Debug|x86.Build.0 = Debug|Win32
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Release|x64.ActiveCfg = Release|x64
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Release|x64.Build.0 = Release|x64
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Release|x86.ActiveCfg = Release|Win32
+		{8D61440F-718B-45A2-85F6-96691DA036A4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
