@@ -3,16 +3,20 @@
 #include <stack> // подключаем библиотеку для использования стека 
 #include <queue> // подключили библиотеку для использования очереди 
 #include <deque> // подключили библиотеку для использования дека 
+#include <string.h>
 
-/*
 #include <list> // подключили библиотеку для использования списка
 #include <set> // подключили библиотеку для использования множества
 #include <map> // подключили библиотеку для использования ассоциативного массива
-*/j
 
-int main()
-{
-	setlocale(LC_ALL, "rus");
+//#include <fstream>
+#include <random>
+#include <ctime>
+#include <iterator>
+#include <string>
+
+using namespace std;
+
 	/*
 	Стек — это структура данных, которая работает
 	по принципу FILO(first in — last out; первый пришел — последний ушел).
@@ -25,24 +29,24 @@ int main()
 
 	*/
 	/*
-	std::stack<int> stackInt;//stack <тип данных> <имя>; -создание стека 
+	std::stack<int> stackInt;//stack <тип данных> <имя>; -создание стека
 	int i = 0, a = 0;
 	std::cout << "Введите 5 целых чисел: " << std::endl;
 	while (i != 5) {
 		std::cin >> a;
-		stackInt.push(a); // добавляем введенное число 
+		stackInt.push(a); // добавляем введенное число
 		i++;
 	}
 
-	if (stackInt.empty()) // проверяем пуст ли стек (нет) 
+	if (stackInt.empty()) // проверяем пуст ли стек (нет)
 		std::cout << "Стек не пуст";
 
 	std::cout << "Верхний элемент стека: " << stackInt.top() << std::endl;
-	stackInt.pop(); // удаляем верхний элемент 
+	stackInt.pop(); // удаляем верхний элемент
 
 	std::cout << "Новый верхний элемент: " << stackInt.top() << std::endl;
 
-	// ЗАДАНИЕ 1 
+	// ЗАДАНИЕ 1
 	/*
 	Проверить правильность расстановки скобок (,),[,],{,}
 	в введенном пользователем выражении за линейное время
@@ -70,18 +74,18 @@ int main()
 	LILO (last in — last out: последним пришел — последним вышел).
 	*/
 	/*
-	std::queue <int> MyQueue; // создали очередь 
+	std::queue <int> MyQueue; // создали очередь
 	std::cout << "Введите 7 чисел: " << std::endl;
 	for (i = 0; i < 7; i++) {
 		std::cin >> a;
-		MyQueue.push(a); // добавляем в очередь элементы 
+		MyQueue.push(a); // добавляем в очередь элементы
 	}
 	std::cout << std::endl;
 	std::cout << "Первый элемент в очереди: " << MyQueue.front() << std::endl;
-	MyQueue.pop(); // удаляем элемент из очереди 
+	MyQueue.pop(); // удаляем элемент из очереди
 	std::cout << "Первый элемент (после удаления): " << MyQueue.front() << std::endl;
 
-	if (!MyQueue.empty()) // проверяем пуста ли очередь (нет) 
+	if (!MyQueue.empty()) // проверяем пуста ли очередь (нет)
 		std::cout << "Очередь не пуста!";
 	/*
 	Очередь с приоритетом (priority_queue) — это обычная очередь,
@@ -89,18 +93,18 @@ int main()
 	чтобы очередь была отсортирована по убыванию.
 	*/
 
-	/*std::priority_queue <int> priority_q; // объявляем приоритетную очередь 
+	/*std::priority_queue <int> priority_q; // объявляем приоритетную очередь
 
 	std::cout << "Введите 7 чисел: " << std::endl;
 	for (i = 0; i < 7; i++) {
 		std::cin >> a;
-		priority_q.push(a); // добавляем элементы в очередь 
+		priority_q.push(a); // добавляем элементы в очередь
 		//std::copy(MyQueue.front(), MyQueue.back(), std::ostream_iterator<int>(cout, " "));
 	}
-	// выводим первый 
+	// выводим первый
 	std::cout << "Первый элемент очереди: " << priority_q.top();
 
-	// ЗАДАНИЕ 2 
+	// ЗАДАНИЕ 2
 	/*
 	Программа на вход получает список школьников.
 	В каждой строке сначала записан номер класса (число, равное 9, 10 или 11),
@@ -142,18 +146,38 @@ int main()
 	}
   if (deque.empty()) //проверяем пуст ли дек (нет)
 	  std::cout << "Дек не пуст";
-	   
+
 	   std::cout << "Верхний элемент дека: " << deque.back()
 	   << std::endl;
 	   deque.pop_back(); //удаляем верхний элемент
 	   std::cout << "Новый верхний элемент: " << deque.back
 	  */
-//ЗАДАЧА 3 
-/*
-Проверить, является ли введенная строка палиндромом
-(читается одинаково слева направо и справа налево). Использовать дек.
-*/
+	  //ЗАДАЧА 3 
+	  /*
+	  Проверить, является ли введенная строка палиндромом
+	  (читается одинаково слева направо и справа налево). Использовать дек.
+	  */
+bool palindrom(char s[100]);
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	char s[100];
+	cout << "введите строку" << endl;
+	cin.getline(s, 100);
+	if (palindrom(s) == 1)
+		cout << "палиндром " << endl;
+	else
+		cout << "не палиндром" << endl;
+	return 0;
 
+	bool palindrom(char s[]); {
+		int n = strlen(s);
+		for (int i = 0; i < n / 2; i++)
+			if (s[i] != s[n - 1 - i])
+				return false;
+		return true;
+	}
+}
 /*
 
 Считываем строку посимвольно. каждый символ добавляем в хвост дека.
@@ -169,6 +193,48 @@ int main()
 сортировка.
 */
 
+/*	list <int> mylist;
+	//	list <int> mylist2;
+	list <int> listmerge = { 7, 8, 9 };
+	list <int> ::iterator it;
+	list <int> ::iterator pos_ud_begin, pos_ud_end;
+	/*static default_random_engine rnd(time(0));
+	static uniform_int_distribution<unsigned> d(2, 9);
+	int q=d(rnd);
+	for (int i = 0; i < 2; i++) {
+		for (int j = 1; j < 6; j++) {
+			mylist.push_back(i);	// добавили 10 элементов
+		}
+	}
+	//	mylist.remove(0); // удалили элемен по значению
+
+	copy(mylist.begin(), mylist.end(), ostream_iterator<int>(cout, " "));
+	cout << endl;
+
+	mylist.insert(mylist.end(), 6); // добавили новый элемент
+	// ------> Удаляем последовательность элементов
+	//pos_ud_begin = pos_ud_end = mylist.begin();
+	//advance(pos_ud_end, 9);		// сдвигает позицию (pos_end) на 5 ячеек.
+	//pos_ud_begin++;
+	//mylist.erase(pos_ud_begin, pos_ud_end);
+	//<-----------------
+
+	mylist.clear();  // удалили все дубликаты
+	cout << "\n";
+	copy(mylist.begin(), mylist.end(), ostream_iterator<int>(cout, " ")); // вывод изменённого листа
+	cout << endl;
+	for (it = mylist.begin(); it != mylist.end(); it++) {
+		cout << (*it) << "-";
+	}
+
+	mylist.merge(listmerge);  // присвоили список 
+	for (it = mylist.begin(); it != mylist.end(); it++) {
+		cout << (*it) << "-";
+	}
+
+	return 0;
+}
+*/
 //ЗАДАЧА 5 
 /*
 Описать структуру данных Set.
@@ -201,7 +267,7 @@ int main()
 значение элемента из середины
 */
 
-std::stack <char> first;
+/*std::stack <char> first;
 char a;
 while (1)
 	{
@@ -252,4 +318,4 @@ while (1)
 		system("pause");
 		return 0;
 }
-
+*/
