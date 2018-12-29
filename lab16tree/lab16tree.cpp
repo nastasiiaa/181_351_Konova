@@ -1,95 +1,116 @@
 #include <iostream>
 #include <cstdlib>
 
-
 template<class T>
 class tree {
-	struct node {
-		T     val;
-		node* left;
-		node* right;
+	struct Node {
+		T     item;
+		Node *son;
+		Node *bro;
+		Node(T i, Node*s = NULL, Node *b = NULL)
+		{
+			item = i;
+			son = s;
+			bro = b;
+		}
+		Node() {};
 	};
+
+	Node *root;
+
 private:
-	node*  tr;
+	Node*  tr;
 	size_t cnt;
 public:
-	tree(void) :tr(NULL), cnt(0) {}
-	tree(const tree&);
-	~tree() {
-		clear();
+	tree() { root = NULL; }
+	void add(const T &elem)
+	{
+		add(root, elem);
 	}
-public:
 
-	//вставка
-	bool insert(const T& val) {
-		node* p = tr, *i = tr;
-		while (i != NULL) {
-			p = i;
-			if (val < i->val)
-				i = i->left;
-			else if (val > i->val)
-				i = i->right;
-			else
-				return false;
+	void f()
+	{
+		Node *temp = new Node;
+		*temp = *root;
+		std::cout << temp->item;
+		f(temp);
+		*temp = *root;
+		*temp = *temp->son;
+		f(temp);
+
+
+		/*while (temp->son != NULL)
+		{
+			*temp = *temp->son;
+			std::cout << temp->item;
+			while (temp->bro != NULL)
+			{
+				*temp = *temp->bro;
+				std::cout << temp->item;
+			}
+			//*temp = *root;
+		}*/
+	}
+	/*void print()
+	{
+		Node *temp = new Node;
+		*temp = *root;
+		if (temp->son != NULL)
+		{
+			*temp = *temp->son;
+			while (temp->bro != NULL)
+			{
+				std::cout << temp->item;
+				*temp = *temp->bro;
+			}
+			std::cout << temp->item;
 		}
-
-		node* n = new (std::nothrow) node();
-		if (n != NULL) {
-			n->val = val;
-			n->left = n->right = NULL;
-
-			if (p == NULL)
-				tr = n;
-			else if (val < p->val)
-				p->left = n;
-			else
-				p->right = n;
-			++cnt;
-		}
-		return (n != NULL);
-	}
-
-	//сумма элементов(метод, который выводит сумму узлов дерева)
-	T get_sum(void) {
-		return __sum(tr);
-	}
-
-	//удаление всех
-	void clear(void) {
-		__clear(tr);
-		tr = NULL;
-		cnt = 0;
-	}
-
+	}*/
 private:
+	void add(Node *&node, const T &item)
+	{
+		int a;
+		if (node == NULL)
+		{
+			node = new Node(item);
+		}
+		else {
+			std::cin >> a;
+			if (/*item < node->item*/a > 0) {
+				add(node->son, item);
+			}
 
-	T __sum(const node* p) {
-		if (p != NULL)
-			return p->val + __sum(p->left) + __sum(p->right);
-		return 0;
-	}
-
-	void __clear(node* p) {
-		if (p != NULL) {
-			if (p->left != NULL)
-				__clear(p->left);
-			if (p->right != NULL)
-				__clear(p->right);
-			delete p;
+			else {
+				add(node->bro, item);
+			}
 		}
 	}
+	void f(Node *&node)
+	{
+		if (node->son != NULL)
+		{
+			*node = *node->son;
+			std::cout << node->item;
+			while (node->bro != NULL)
+			{
+				*node = *node->bro;
+				std::cout << node->item;
+			}
 
-	size_t getSize(void) const { return cnt; }
-	//...
+			*node = *root;
+			*node = *node->son;
+		}
+
+	}
 };
+int main() {
 
+	tree<int> t1;
+	for (int i = 1; i <= 4; i++)t1.add(i); 
 
-int main(void) {
-	tree<size_t> tr;
-	for (int i = 0; i < 30; ++i)
-		tr.insert((size_t)(rand() % 40));
-
-	std::cout << "sum: " << tr.get_sum() << std::endl;
-	tr.clear();
+	t1.f();
+	//t1.print();
+	//getchar();
+	system("pause"); 
 	return 0;
 }

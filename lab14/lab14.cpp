@@ -200,7 +200,7 @@ int main ()
 	  Проверить, является ли введенная строка палиндромом
 	  (читается одинаково слева направо и справа налево). Использовать дек.
 	  */
-	/*bool palindrom(char s[100]);
+	bool palindrom(char s[100]);
 
 	setlocale(LC_ALL, "rus");
 	char s[100];
@@ -218,7 +218,7 @@ int main ()
 			if (s[i] != s[n - 1 - i])
 				return false;
 		return true;
-	}*/
+	}
 
 	/*
 
@@ -233,7 +233,7 @@ int main ()
 	ввод, вывод,
 	добавление элемента и удаление,
 	сортировка.
-	*/
+	
 	list <int> mylist;
 	//	list <int> mylist2;
 	list <int> listmerge = { 7, 8, 9 };
@@ -241,7 +241,9 @@ int main ()
 	list <int> ::iterator pos_ud_begin, pos_ud_end;
 	/*static default_random_engine rnd(time(0));
 	static uniform_int_distribution<unsigned> d(2, 9);
-	int q=d(rnd);*/
+	int q=d(rnd);
+
+
 	 for (int i = 0; i < 2; i++) {
 		for (int j = 1; j < 6; j++) {
 			mylist.push_back(i);	// добавили 10 элементов
@@ -262,7 +264,7 @@ int main ()
 	advance(pos_ud_end, 9);		// сдвигает позицию (pos_end) на 5 ячеек.
 	pos_ud_begin++;
 	mylist.erase(pos_ud_begin, pos_ud_end);
-	<-----------------*/
+	<-----------------
 
 
 
@@ -282,14 +284,14 @@ int main ()
 	}
 
 	return 0;
-
+*/
 		//ЗАДАЧА 5 
 		/*
 		Описать структуру данных Set.
 	Продемонстрировать работу с этой структурой:
 	ввод, вывод,
 	добавление элемента и удаление.
-	*/
+	
 	map <string, string> passport;
 
 	passport["maxim"] = "Denisov";     // добавляем
@@ -306,7 +308,7 @@ int main ()
 	passport.erase(full_name);// удаляем
 
 
-	cout << "Size posle udal: " << passport.size();
+	cout << "Size posle udal: " << passport.size();*/
 	//ЗАДАЧА 6 
 	/*
 	Описать структуру данных map.
